@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import { getMovies } from "../../api/tmdb-api";
 import HomePage from "../../pages/homePage";
 import { queryClient } from "../..";
+import Paginator from "../paginator";
 
 export var sortMoviesBy="popularity.desc";
 export var update = false;
@@ -35,6 +36,7 @@ function MovieListPageTemplate({ movies, title, action }) {
   };
 
   return (
+<>
     <Grid container sx={{ padding: '20px' }}>
       <Grid item xs={12}>
         <Header title={title} />
@@ -52,6 +54,8 @@ function MovieListPageTemplate({ movies, title, action }) {
         <MovieList action={action} movies={displayedMovies}></MovieList>
       </Grid>
     </Grid>
+    <Paginator/>
+    </>
   );
 }
 export default MovieListPageTemplate;
