@@ -34,7 +34,6 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import TrendingMoviesPage from "./pages/trendingMoviesPage";
 import LatestMoviesPage from "./pages/latestMoviesPage";
-
 export const queryClient = new QueryClient({
   
   defaultOptions: {

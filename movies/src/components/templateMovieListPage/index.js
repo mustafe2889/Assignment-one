@@ -14,6 +14,15 @@ function MovieListPageTemplate({ movies, title, action }) {
     const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genreId = Number(genreFilter);
+  const [currentPage,setCurrentPage] = useState(1); 
+
+
+  const handlePageClicked = (data) =>{
+    setCurrentPage(data.selected)
+    console.log("clicked",data.selected)
+
+
+  }
   const [sortMovies, setMovieSort] = useState("")
 
 
@@ -54,8 +63,8 @@ function MovieListPageTemplate({ movies, title, action }) {
         <MovieList action={action} movies={displayedMovies}></MovieList>
       </Grid>
     </Grid>
-    <Paginator/>
-    </>
+    <Paginator clickFunction = {handlePageClicked}/>
+        </>
   );
 }
 export default MovieListPageTemplate;
