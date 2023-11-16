@@ -35,7 +35,8 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import TrendingMoviesPage from "./pages/trendingMoviesPage";
 import LatestMoviesPage from "./pages/latestMoviesPage";
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
+  
   defaultOptions: {
     queries: {
       staleTime: 360000,

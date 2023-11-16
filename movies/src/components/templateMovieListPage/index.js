@@ -3,11 +3,18 @@ import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid";
+import { getMovies } from "../../api/tmdb-api";
+import HomePage from "../../pages/homePage";
+import { queryClient } from "../..";
 
+export var sortMoviesBy="popularity.desc";
+export var update = false;
 function MovieListPageTemplate({ movies, title, action }) {
     const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genreId = Number(genreFilter);
+  const [sortMovies, setMovieSort] = useState("")
+
 
   let displayedMovies = movies
     .filter((m) => {
@@ -19,6 +26,11 @@ function MovieListPageTemplate({ movies, title, action }) {
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
+    if  (type === "sort") {
+      setMovieSort(value);
+      sortMoviesBy=value;
+      queryClient.refetchQueries();
+    }
     else setGenreFilter(value);
   };
 
@@ -33,6 +45,8 @@ function MovieListPageTemplate({ movies, title, action }) {
             onUserInput={handleChange}
             titleFilter={nameFilter}
             genreFilter={genreFilter}
+            movieSort={sortMovies}
+
           />
         </Grid>
         <MovieList action={action} movies={displayedMovies}></MovieList>

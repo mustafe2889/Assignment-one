@@ -1,14 +1,15 @@
-import React from "react";
+import React, {useState } from "react";
 import { getMovies } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import { update } from "../components/templateMovieListPage";
 
 
 const HomePage = (props) => {
 
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+  const { data, error, isLoading, isError}  = useQuery('discover', getMovies)
 
   if (isLoading) {
     return <Spinner />
