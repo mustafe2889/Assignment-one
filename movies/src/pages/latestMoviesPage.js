@@ -1,36 +1,32 @@
 import React from "react";
-import { getLatestMovies } from "../api/tmdb-api";
+import { getLatestMovies } from "../api/tmdb-api"; // Update the import statement
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
+const LatestMoviesPage = () => {
+    const { data: movie, error, isLoading, isError } = useQuery('latest', getLatestMovies);
 
-const LatestMoviesPage = (props) => {
+    if (isLoading) {
+      return <Spinner />;
+    }
 
-  const {  data, error, isLoading, isError }  = useQuery('discoverLatest', getLatestMovies)
+    if (isError) {
+      return <h1>{error.message}</h1>;
+    }
 
-  if (isLoading) {
-    return <Spinner />
-  }
+    const movies = movie ? [movie] : [];
 
-  if (isError) {
-    return <h1>{error.message}</h1>
-  }  
-  const movies = data.results;
 
-  // Redundant, but necessary to avoid app crashing.
-  const favorites = movies.filter(m => m.favorite)
-  localStorage.setItem('favorites', JSON.stringify(favorites))
-  //const addToFavorites = (movieId) => true 
+    return (
+      <PageTemplate
+        title="Latest Movie" 
+        movies={movies}
+        action={(movie) => {
+          return <AddToFavoritesIcon movie={movie} />;
+        }}
+      />
+    );
+  };
 
-  return (
-    <PageTemplate
-      title='Trending Movies'
-      movies={movies}
-      action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
-      }}
-    />
-  );
-};
-export default LatestMoviesPage;
+  export default LatestMoviesPage;

@@ -115,16 +115,20 @@ return fetch(
 
 
 
-export const getLatestMovies = (id) => {
-return fetch(
-  `https://api.themoviedb.org/3/latest/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}`
-).then( (response) => {
-  if (!response.ok) {
-    throw new Error(response.json().message);
-  }
-  return response.json();
-})
-.catch((error) => {
-  throw error
-});
+export const getLatestMovies = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  )
+  .then((response) => {
+    if (!response.ok) {
+      return response.json().then((json) => {
+        throw new Error(json.message || 'Server responded with an error');
+      });
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    // Handle network errors and other unexpected issues
+    throw new Error(error.message || 'Network error or unexpected issue occurred');
+  });
 };
