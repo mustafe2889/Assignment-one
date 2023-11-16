@@ -32,9 +32,7 @@ import UpcomingPage from "./pages/upcomingMoviesPage";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
-import LatestPage from "./pages/latestPage";
-import TrendingPage from "./pages/trendingPage";
-
+import TrendingMoviesPage from "./pages/trendingMoviesPage";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -53,8 +51,7 @@ const App = () => {
         <MoviesContextProvider>
         <Routes>
         <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
-        <Route path="/movies/latest" element={<LatestPage/>} />
-        <Route path="/movies/trending" element={<TrendingPage/>} />
+        <Route path="/movies/trending" element={<TrendingMoviesPage />} />
         {/* <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} /> */}
         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route path="/movies/:id" element={<MoviePage />} />

@@ -12,6 +12,7 @@ import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 const SiteHeader = ({ history }) => {
@@ -27,8 +28,7 @@ const SiteHeader = ({ history }) => {
     { label: "Home", path: "/" },
     { label: "UPCOMING", path: "/movies/upcoming" },
     { label: "Favorites", path: "/movies/favorites" },
-    { label: "Latest", path: "/movies/latest" },
-    { label: "Trending", path: "/movies/trending" },
+    { label: "Trending", path: "/movies/trending" },   
     { label: "Option 3", path: "/" },
      { label: "Option 4", path: "/" },
 
