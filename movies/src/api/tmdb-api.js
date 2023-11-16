@@ -93,35 +93,8 @@ export const getUpcomingMovies = () => {
 
   };
 
-  export const getLatest = (args) => {
-    //console.log(args)
-    return fetch(
-      `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    ).then((response) => {
-      if (!response.ok) {
-        throw new Error(response.json().message);
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      throw error
-    });
-  };
 
-  export const getTrending = (args) => {
-    //console.log(args)
-    return fetch(
-      `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    ).then((response) => {
-      if (!response.ok) {
-        throw new Error(response.json().message);
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      throw error
-    });
-  };
+
 
 export const getTrendingMovies = (id) => {
 return fetch(
@@ -139,3 +112,17 @@ return fetch(
 };
 
 
+
+export const getLatestMovies = (id) => {
+return fetch(
+  `https://api.themoviedb.org/3/latest/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}`
+).then( (response) => {
+  if (!response.ok) {
+    throw new Error(response.json().message);
+  }
+  return response.json();
+})
+.catch((error) => {
+  throw error
+});
+};
