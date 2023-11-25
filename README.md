@@ -19,7 +19,7 @@ Name: [Mustafe Abdi Mohamoud]
 
 Running this project: install nodeJS Clone this repo or download. Open the working directory and run.
 
-### `npm install`
+```npm install```
 
 ## API endpoints.
 
