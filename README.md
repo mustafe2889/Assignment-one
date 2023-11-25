@@ -4,7 +4,8 @@ Name: [Mustafe Abdi Mohamoud]
 
 ## Overview.
 
-[A brief statement on the content of this repository.]
+A movie app built with React users can search and filter movies by genre you can also add movies to your favorites all  information about  movies is retrieved using the TMDB  public API.
+
 
 ### Features.
 [ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
@@ -19,7 +20,29 @@ Name: [Mustafe Abdi Mohamoud]
 
 Running this project: install nodeJS Clone this repo or download. Open the working directory and run.
 
-```npm install```
+```
+npm install
+```
+
+Register on TMDB and get the API credentials.[here](https://developer.themoviedb.org/)
+On TMDB go to Settings->API->Create ->Request API ->Developer -> And enter required data.
+create .env file in your project and add the TMDB API key 
+
+```
+REACT_APP_TMDB_KEY=  API key value
+```
+
+Runing the app
+```
+npm start
+```
+Then you can access your app on
+
+```
+http://localhost:3000/
+```
+
+
 
 ## API endpoints.
 
