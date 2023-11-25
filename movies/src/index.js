@@ -1,24 +1,3 @@
-// import React from "react";
-// import { createRoot } from "react-dom/client";
-// import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
-// import HomePage from "./pages/homePage";
-// import MoviePage from "./pages/movieDetailsPage";
-
-// const App = () => {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/movies/:id" element={<MoviePage />} />
-//         <Route path="/" element={<HomePage />} />
-//         <Route path="*" element={ <Navigate to="/" /> } />
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// };
-
-// const rootElement = createRoot( document.getElementById("root") )
-// rootElement.render(<App />);
-
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import SiteHeader from './components/siteHeader'
 import MovieReviewPage from "./pages/movieReviewPage";
@@ -37,6 +16,7 @@ import LatestMoviesPage from "./pages/latestMoviesPage";
 import TopRatedMoviePage from "./pages/topRatedMoviesPage";
 import PopularMoviePage from "./pages/popularMoviesPage";
 import ActorHomePage from "./pages/actorHomePage";
+import ActorPage from "./pages/actorDetailsPage";
 
 
 export const queryClient = new QueryClient({
@@ -69,6 +49,7 @@ const App = () => {
         <Route path="/movies/topratedmovies" element={<TopRatedMoviePage />} />
         <Route path="/movies/popularmovies" element={<PopularMoviePage />} />
         <Route path="/actors" element={<ActorHomePage />} />
+        <Route path="/actors/:id" element={<ActorPage />} />
         <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
 
         </Routes>

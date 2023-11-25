@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { getActors } from "../api/tmdb-api";
 import PageTemplate from '../components/templateActorListPage';
 import { useQuery } from 'react-query';
