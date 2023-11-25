@@ -46,6 +46,7 @@ const FavoriteMoviesPage = () => {
           </>
         );
       }}
+      pagination={() => {return null}}
     />
   );
 };

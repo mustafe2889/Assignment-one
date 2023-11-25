@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { getUpcomingMovies } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
-import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 import PlaylistAddIcon from "../components/cardIcons/PlaylistAdd";
-import PlaylistAdd from "../components/cardIcons/PlaylistAdd";
-const UpcomingMoviesPage = (props) => {
-  // const [upcomingMovies, setUpcomingMovies] = useState([]);
-  const { data, error, isLoading, isError } = useQuery(
-    "upcoming",
-    getUpcomingMovies
-  );
+import Pagination from '@mui/material/Pagination';
 
-  // useEffect(() => {
-  //   console.log(data);
-  // });
+const UpcomingMoviesPage = (props) => {
+  const [page, setPage] = useState(2);
+  
+  const { data, error, isLoading, isError } = useQuery(['upcoming', page], () => getUpcomingMovies(page), {
+    keepPreviousData: true, 
+  });
+  const handlePageChange = (event, value) => {
+    setPage(value); 
+  };
 
   if (isLoading) {
     return <Spinner />;
@@ -25,16 +24,28 @@ const UpcomingMoviesPage = (props) => {
     return <h1>{error.message}</h1>;
   }
 
-  const upcomingMovies = data.results;
-
+  const movies = data.results;
+  const totalPages = data.total_pages;
+  
+  
   return (
+    <>
     <PageTemplate
       title="Upcoming Movies"
-      movies={upcomingMovies}
-      action={(movie) => {
-        return <PlaylistAdd movie={movie} />;
-    }}
-        />
+      movies={movies}
+      action={(movie) => <PlaylistAddIcon movie={movie} />}
+    />
+    {/* Pagination component */}
+    <Pagination
+      count={totalPages}
+      page={page}
+      onChange={handlePageChange}
+      color="primary"
+      showFirstButton
+      showLastButton
+      style={{ paddingBottom: '20px', paddingTop: '20px', justifyContent: 'center', display: 'flex' }}
+    />
+  </>
   );
 };
 export default UpcomingMoviesPage;

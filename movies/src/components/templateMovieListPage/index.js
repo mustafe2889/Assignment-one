@@ -3,10 +3,7 @@ import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid";
-import { getMovies } from "../../api/tmdb-api";
-import HomePage from "../../pages/homePage";
 import { queryClient } from "../..";
-import Paginator from "../paginator";
 
 export var sortMoviesBy="popularity.desc";
 export var update = false;
@@ -17,23 +14,28 @@ function MovieListPageTemplate({ movies, title, action }) {
   const [currentPage,setCurrentPage] = useState(1); 
 
 
-  const handlePageClicked = (data) =>{
-    setCurrentPage(data.selected)
-    console.log("clicked",data.selected)
-
+  const handlePageClicked = (pagenum) =>{
+    setCurrentPage(pagenum.selected)
+    console.log("clicked",pagenum.selected)
+   // const { data, error, isLoading, isError } = useQuery('discover', getMovies.bind(this,currentPage))
+//movies=data
 
   }
   const [sortMovies, setMovieSort] = useState("")
-
-
-  let displayedMovies = movies
+  var displayedMovies = movies
+  if(movies.length>1){
+  /* `var displayedMovies` is a variable that stores the filtered movies based on the name and genre
+  filters applied by the user. It uses the `filter` method to filter the movies array based on the
+  conditions specified in the filters. The filtered movies are then displayed on the movie list
+  component. */
+   displayedMovies = movies
     .filter((m) => {
       return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     });
-
+  }
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
     if  (type === "sort") {
@@ -63,7 +65,6 @@ function MovieListPageTemplate({ movies, title, action }) {
         <MovieList action={action} movies={displayedMovies}></MovieList>
       </Grid>
     </Grid>
-    <Paginator clickFunction = {handlePageClicked}/>
         </>
   );
 }
