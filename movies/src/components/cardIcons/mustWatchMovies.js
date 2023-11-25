@@ -1,21 +1,17 @@
-import React, { useContext } from "react";
-import { MoviesContext } from "../../contexts/moviesContext";
-import IconButton from "@material-ui/core/IconButton";
-import PlayListAddIcon from '@material-ui/icons/PlaylistAdd'
+import React from 'react';
+import IconButton from '@mui/material/IconButton';
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
-const mustWatchMovies = ({ movie }) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const context = useContext(MoviesContext);
-
-  const handleAddToMustWatch = (e) => {
-    e.preventDefault();
-    context.mustWatchMovies(movie);
+const MustWatchMovies = ({ movie }) => {
+  const handleAddToMustWatch = (id) => {
+    // Logic to add movie to must-watch list
   };
+
   return (
-    <IconButton aria-label="add to mustwatch" onClick={handleAddToMustWatch} >
-      <PlayListAddIcon color="primary" fontSize="large" />
+    <IconButton aria-label="Add to Must Watch" onClick={() => handleAddToMustWatch(movie.id)}>
+      <PlaylistAddIcon />
     </IconButton>
   );
 };
 
-export default mustWatchMovies;
+export default MustWatchMovies;
