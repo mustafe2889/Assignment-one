@@ -7,7 +7,7 @@ import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
 import Pagination from '@mui/material/Pagination';
 
 const HomePage = () => {
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
 
   const { data, error, isLoading, isError } = useQuery(['discover', page], () => getMovies(page));
 
@@ -20,12 +20,11 @@ const HomePage = () => {
   }
 
   const movies = data.results;
-  const totalPages = data.total_pages;
+  const totalPages = Math.min(data.total_pages, 500); // Limit totalPages to 30
 
   const handlePageChange = (event, value) => {
     setPage(value);
   };
-
 
   return (
     <>

@@ -1,7 +1,10 @@
 import { sortMoviesBy } from "../components/templateMovieListPage";
 
 export const getMovies = (page = 1) => {
-   
+  if (page > 500) {
+    // Return an empty object for pages beyond 0
+    return Promise.resolve({ results: [], total_pages: 500 });
+  }    
   return fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=${sortMoviesBy}&include_adult=false&include_video=true&page=${page}`
 
@@ -101,7 +104,10 @@ export const getUpcomingMovies = (page =1) => {
 
 
 export const getTrendingMovies = (page =1) => {
-  
+  if (page > 500) {
+    // Return an empty object for pages beyond 0
+    return Promise.resolve({ results: [], total_pages: 500 });
+  }  
 return fetch(
   `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
 ).then( (response) => {

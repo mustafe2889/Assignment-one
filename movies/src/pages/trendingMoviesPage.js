@@ -20,7 +20,7 @@ const TrendingMoviesPage = (props) => {
     return <h1>{error.message}</h1>
   }  
   const movies = data.results;
-  const totalPages = data.total_pages; // Total page count from the API
+  const totalPages = Math.min(data.total_pages, 500); // Limit totalPages to 30
   const handlePageChange = (event, value) => {
     setPage(value); // Set new page number
   };
