@@ -51,8 +51,8 @@ const ActorDetails = ({actor}) => {  // Don't miss this!
                     <Chip label={`${actor.known_for_department}`} sx={{...chip}}/>
                 </li>
             </Paper>
-            <Link to={`/recommendations/${actor.id}`}>
-                <Fab
+            <Link to={`/movieCredits/${actor.id}`}>
+                    <Fab
                     color="secondary"
                     variant="extended"
                     sx={{

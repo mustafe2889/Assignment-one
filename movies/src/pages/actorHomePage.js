@@ -19,7 +19,7 @@ const HomePage = (props) => {
 
     return (
         <PageTemplate
-            title="Discover Actors"
+            title="Actors Page"
             actors={actors}
             action={(actor) => {
             }}
