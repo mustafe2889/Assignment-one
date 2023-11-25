@@ -1,6 +1,6 @@
 # Assignment 1 - ReactJS app.
 
-Name: [your name]
+Name: [Mustafe Abdi Mohamoud]
 
 ## Overview.
 
@@ -9,15 +9,17 @@ Name: [your name]
 ### Features.
 [ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
  
-+ Feature 1
-+ Feature 2
-+ Feature 3
-+ etc
-+ etc
++ Top Rated movies page
++ Popular page
++ Actors page
++ Added Pagination Home Page, Upcoming, Trending, Top Rated, Popular
+
 
 ## Setup requirements.
 
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+Running this project: install nodeJS Clone this repo or download. Open the working directory and run.
+
+### `npm install`
 
 ## API endpoints.
 
