@@ -61,7 +61,9 @@ Get a list of upcoming movies in theatres.
 **Get Upcoming** `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
 
 ## Movie App Design.
-<img width="1506" alt="Screenshot 2023-10-03 at 12 15 38 p m" src="https://github.com/mustafe2889/mustafe2889/assets/59968812/1065b5ff-cf35-42da-9231-1eb985c77248">
+<img width="1512" alt="Screenshot 2023-11-26 at 13 50 15" src="https://github.com/mustafe2889/mustafe2889/assets/59968812/9844594e-2077-460e-b5df-c7cadffc0c6d">
+
+<img width="1512" alt="Screenshot 2023-11-26 at 14 11 31" src="https://github.com/mustafe2889/mustafe2889/assets/59968812/85afde6c-b555-453f-ac8f-0310ab8959ef">
 
 ## Routing.
 
