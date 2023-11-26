@@ -63,6 +63,7 @@ Get a list of upcoming movies in theatres.
 ## Movie App Design.
 <img width="1512" alt="Screenshot 2023-11-26 at 13 50 15" src="https://github.com/mustafe2889/mustafe2889/assets/59968812/9844594e-2077-460e-b5df-c7cadffc0c6d">
 
+
 <img width="1512" alt="Screenshot 2023-11-26 at 14 11 31" src="https://github.com/mustafe2889/mustafe2889/assets/59968812/85afde6c-b555-453f-ac8f-0310ab8959ef">
 
 ## Routing.

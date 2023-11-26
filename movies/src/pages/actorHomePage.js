@@ -25,7 +25,7 @@ const HomePage = (props) => {
 
      <>
       <PageTemplate
-            title="Actors"
+            title="Actors Page"
             actors={actors}
         action={(movie) => <AddToFavoritesIcon movie={movie} />}
       />
