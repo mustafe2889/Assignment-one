@@ -178,9 +178,13 @@ export const getTopRatedMovies = (page =1) => {
   });
 };
 
-export const getActors = () => {
+export const getActors = (page =1) => {
+  if (page > 600) {
+    // Return an empty object for pages beyond 600
+    return Promise.resolve({ results: [], total_pages: 600 });
+  }  
   return fetch(
-      `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+      `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${page}`
   ).then((response) => {
     if (!response.ok) {
       throw new Error(response.json().message);
