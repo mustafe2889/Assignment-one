@@ -1,6 +1,6 @@
 # Assignment 1 - ReactJS app.
 
-Name: [Mustafe Abdi Mohamoud]
+Name: Mustafe Abdi Mohamoud
 
 ## Overview.
 
@@ -61,7 +61,7 @@ Get a list of upcoming movies in theatres.
 **Get Upcoming** `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
 
 ## Movie App Design.
-
+<img width="1506" alt="Screenshot 2023-10-03 at 12 15 38 p m" src="https://github.com/mustafe2889/mustafe2889/assets/59968812/1065b5ff-cf35-42da-9231-1eb985c77248">
 
 ## Routing.
 
